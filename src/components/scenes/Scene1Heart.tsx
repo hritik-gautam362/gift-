@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Sparkles, Heart as HeartIcon } from 'lucide-react';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface Scene1HeartProps {
   onNext: () => void;
@@ -24,6 +25,9 @@ export const Scene1Heart: React.FC<Scene1HeartProps> = ({ onNext }) => {
     <div className="absolute inset-0 w-full h-[100dvh] bg-gradient-to-b from-slate-950 via-rose-950/30 to-black flex flex-col items-center justify-between p-6 overflow-hidden select-none font-sans-clean">
       {/* Background glowing aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-rose-500/15 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+
+      {/* Instruction Overlay */}
+      <InstructionBanner text="Tap Anywhere on the Heart to Bloom" visible={!isBlooming} position="top" />
 
       {/* Floating flower petals background particles */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

@@ -1,6 +1,7 @@
 import React, { useState, useRef, useEffect } from 'react';
 import { Sparkles, Star, Heart, ArrowRight } from 'lucide-react';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface Scene3ConstellationProps {
   herName: string;
@@ -81,6 +82,13 @@ export const Scene3Constellation: React.FC<Scene3ConstellationProps> = ({ herNam
     >
       {/* Starry Sky Canvas Backdrop */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-indigo-950/60 via-slate-950 to-black pointer-events-none"></div>
+
+      {/* Instruction Overlay */}
+      <InstructionBanner
+        text="Drag Across Stars to Connect Our Constellation"
+        visible={!isCompleted}
+        position="top"
+      />
 
       {/* Random Background Twinkling Stars */}
       <div className="absolute inset-0 pointer-events-none">

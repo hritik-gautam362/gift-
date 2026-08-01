@@ -3,6 +3,7 @@ import { Gift as GiftIcon, Sparkles, Heart, ArrowRight, CheckCircle2, RefreshCw 
 import confetti from 'canvas-confetti';
 import { LoveCoupon } from '../../types';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface Scene6GiftProps {
   giftMessage: string;
@@ -98,6 +99,13 @@ export const Scene6Gift: React.FC<Scene6GiftProps> = ({ giftMessage, coupons, on
     <div className="absolute inset-0 w-full h-[100dvh] bg-gradient-to-b from-slate-950 via-rose-950/30 to-black text-white flex flex-col justify-between p-6 overflow-hidden select-none font-sans-clean">
       {/* Background glow */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-amber-500/10 via-rose-950/20 to-transparent pointer-events-none"></div>
+
+      {/* Instruction Overlay */}
+      <InstructionBanner
+        text="Tap Repeatedly or Shake Phone"
+        visible={!isOpened}
+        position="top"
+      />
 
       {/* Header */}
       <div className="pt-6 text-center space-y-1.5 z-10">

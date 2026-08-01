@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Music, Quote, Sparkles, ArrowRight, Play, Pause, RefreshCw } from 'lucide-react';
 import { RomanticQuote } from '../../types';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface Scene4LyricsProps {
   quotes: RomanticQuote[];
@@ -46,6 +47,13 @@ export const Scene4Lyrics: React.FC<Scene4LyricsProps> = ({ quotes, onNext }) =>
     <div className="absolute inset-0 w-full h-[100dvh] bg-gradient-to-b from-slate-950 via-rose-950/40 to-slate-950 text-white flex flex-col justify-between p-6 overflow-hidden select-none font-sans-clean">
       {/* Background audio aura */}
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 bg-rose-500/10 rounded-full blur-3xl pointer-events-none animate-pulse"></div>
+
+      {/* Instruction Overlay */}
+      <InstructionBanner
+        text="Wait for the Words or Tap 'Next Quote'"
+        visible={revealedWordCount < words.length}
+        position="top"
+      />
 
       {/* Floating music note particles */}
       <div className="absolute inset-0 pointer-events-none opacity-30 overflow-hidden">

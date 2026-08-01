@@ -2,6 +2,7 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Heart, Sparkles, Moon, RefreshCw, Star } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface SceneFinalMoonProps {
   herName: string;
@@ -84,6 +85,13 @@ export const SceneFinalMoon: React.FC<SceneFinalMoonProps> = ({
     <div className="absolute inset-0 w-full h-[100dvh] bg-slate-950 text-white flex flex-col justify-between p-6 overflow-hidden select-none font-sans-clean">
       {/* Peaceful Night Sky Background */}
       <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-indigo-950 via-slate-950 to-black pointer-events-none"></div>
+
+      {/* Instruction Overlay */}
+      <InstructionBanner
+        text="Press & Hold 'Hold my hand' to Merge Hearts"
+        visible={!isMerged}
+        position="top"
+      />
 
       {/* Floating Fireflies */}
       <div className="absolute inset-0 pointer-events-none overflow-hidden">

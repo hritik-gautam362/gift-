@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Camera, Heart, Sparkles, X, MapPin, Calendar, ArrowRight } from 'lucide-react';
 import { MemoryPhoto } from '../../types';
 import { soundEngine } from '../../utils/sound';
+import { InstructionBanner } from '../InstructionBanner';
 
 interface Scene2MemoriesProps {
   photos: MemoryPhoto[];
@@ -42,6 +43,13 @@ export const Scene2Memories: React.FC<Scene2MemoriesProps> = ({ photos, onUpdate
     <div className="absolute inset-0 w-full h-[100dvh] bg-gradient-to-b from-slate-950 via-purple-950/40 to-black flex flex-col justify-between p-6 overflow-hidden select-none font-sans-clean">
       {/* Background glowing particles */}
       <div className="absolute inset-0 bg-[radial-gradient(circle_at_top,_var(--tw-gradient-stops))] from-pink-900/20 via-transparent to-transparent pointer-events-none"></div>
+
+      {/* Instruction Banner Overlay */}
+      <InstructionBanner
+        text="Tap Any Floating Memory to Open"
+        visible={openedIds.size === 0 && !activePhoto}
+        position="top"
+      />
 
       {/* Header */}
       <div className="pt-6 text-center space-y-1.5 z-10">
