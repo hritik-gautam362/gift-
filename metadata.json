@@ -1,0 +1,6 @@
+{
+  "name": "Girlfriend Day - An Emotional Journey",
+  "description": "A premium mobile-first interactive experience for Girlfriend Day with glowing fingerprint unlock, interactive heart bloom, falling memories, constellation puzzle, floating love letters, unboxing surprise, and dual-fingerprint fireworks.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

@@ -1,0 +1,118 @@
+@import "tailwindcss";
+
+html,
+body,
+#root {
+  width: 100%;
+  height: 100%;
+  height: 100dvh;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+@layer utilities {
+  .font-serif-display {
+    font-family: 'Playfair Display', Georgia, serif;
+  }
+  .font-sans-clean {
+    font-family: 'Plus Jakarta Sans', system-ui, sans-serif;
+  }
+  .font-handwriting {
+    font-family: 'Dancing Script', 'Great Vibes', cursive;
+  }
+  .font-handwriting-calligraphy {
+    font-family: 'Great Vibes', cursive;
+  }
+
+  .bg-vibrant-space {
+    background: radial-gradient(circle at center, #1a0b2e 0%, #050208 100%);
+  }
+
+  .text-gold-accent {
+    color: #d4af37;
+  }
+
+  .border-gold-accent {
+    border-color: rgba(212, 175, 55, 0.4);
+  }
+
+  .bg-gold-accent {
+    background-color: #d4af37;
+  }
+}
+
+/* Custom glassmorphism & glows */
+.glass-panel {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.05);
+}
+
+.glass-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1) 0%, rgba(255, 255, 255, 0.02) 100%);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 200, 220, 0.2);
+  box-shadow: 0 10px 40px -10px rgba(219, 39, 119, 0.25);
+}
+
+.glass-dark {
+  background: rgba(10, 5, 16, 0.85);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(219, 39, 119, 0.2);
+}
+
+/* Heartbeat Animation */
+@keyframes heartPulse {
+  0% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)); }
+  14% { transform: scale(1.15); filter: drop-shadow(0 0 30px rgba(236, 72, 153, 0.9)); }
+  28% { transform: scale(1.03); filter: drop-shadow(0 0 18px rgba(236, 72, 153, 0.7)); }
+  42% { transform: scale(1.22); filter: drop-shadow(0 0 35px rgba(236, 72, 153, 1)); }
+  70% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)); }
+  100% { transform: scale(1); filter: drop-shadow(0 0 15px rgba(236, 72, 153, 0.6)); }
+}
+
+.animate-heartbeat {
+  animation: heartPulse 1.6s infinite ease-in-out;
+}
+
+/* Shimmer scanline effect for fingerprint */
+@keyframes scanLine {
+  0% { top: 0%; opacity: 0; }
+  50% { opacity: 0.8; }
+  100% { top: 100%; opacity: 0; }
+}
+
+.animate-scan {
+  animation: scanLine 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+}
+
+/* Glowing text aura */
+.text-glow-pink {
+  text-shadow: 0 0 12px rgba(236, 72, 153, 0.6), 0 0 24px rgba(219, 39, 119, 0.4);
+}
+
+.text-glow-gold {
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.8), 0 0 24px rgba(212, 175, 55, 0.4);
+}
+
+/* Gold Underline Glow Bar */
+.gold-glow-bar {
+  box-shadow: 0 0 10px #d4af37;
+}
+
+/* Hide scrollbar for smooth app feeling */
+::-webkit-scrollbar {
+  display: none;
+}
+* {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+  touch-action: manipulation;
+}
+
